@@ -3,12 +3,12 @@ FROM pataquets/ubuntu:trusty
 RUN \
   apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y openssh-server \
+    apt-get install -y \
+      openssh-server \
   && \
   apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
-
-RUN \
+  rm -rf /var/lib/apt/lists/* \
+  && \
   rm -vf /etc/ssh/ssh_host_* && \
   mkdir -v /var/run/sshd
 
