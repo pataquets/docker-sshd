@@ -12,6 +12,6 @@ RUN \
   rm -vf /etc/ssh/ssh_host_* && \
   mkdir -v /var/run/sshd
 
-ADD ./docker-run /root/docker-run
+ADD ./docker-exec-sshd /root/docker-exec-sshd
 
-CMD [ "/root/docker-run" ]
+ENTRYPOINT [ "/root/docker-exec-sshd", "-D", "-e" ]
